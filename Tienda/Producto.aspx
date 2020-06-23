@@ -22,7 +22,7 @@
                     </td>
                 </tr>
                 <tr> 
-                    <td>Descripción</td>
+                    <td>Descripción es describir</td>
                     <td>
                         <asp:TextBox ID="TBDescripcion" runat="server" TextMode="MultiLine" Height="52px" MaxLength="1000" ToolTip="Describi el producto" Width="170px"></asp:TextBox>
                     </td>
