@@ -92,6 +92,16 @@
         <div>
             <asp:Label ID="IdMensaje" runat="server" Text=""></asp:Label>
         </div>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
+            <Columns>
+                <asp:BoundField DataField="Id_Producto" HeaderText="Id_Producto" ReadOnly="True" SortExpression="Id_Producto" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                <asp:BoundField DataField="Precio_Venta" HeaderText="Precio_Venta" SortExpression="Precio_Venta" />
+                <asp:BoundField DataField="Stock_Actual" HeaderText="Stock_Actual" SortExpression="Stock_Actual" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TiendaOnlineConnectionString %>" ProviderName="<%$ ConnectionStrings:TiendaOnlineConnectionString.ProviderName %>" SelectCommand="SELECT [Id_Producto], [Nombre], [Descripcion], [Precio_Venta], [Stock_Actual] FROM [PRODUCTO]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
