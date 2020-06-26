@@ -54,7 +54,7 @@
         </div>
         <hr />
         <div>
-            <asp:Image runat="server" Width="500px"></asp:Image>
+            <asp:Image runat="server" Width="500px" ImageUrl="~/Images/model-train-1146828.jpg"></asp:Image>
         </div>
     </form>
 </body>

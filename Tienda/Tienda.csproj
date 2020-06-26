@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Images\model-train-1146828.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Usuario\PanelDelUsuario.aspx" />
     <Content Include="Web.config" />

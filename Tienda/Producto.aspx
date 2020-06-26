@@ -79,7 +79,7 @@
 
                         <asp:Button ID="BtnActualizar" runat="server" Text="Actualizar" OnClick="BtnActualizar_Click" />
 
-                        <asp:Button ID="BtnEliminar" runat="server" Text="Borrar" />
+                        <asp:Button ID="BtnEliminar" runat="server" Text="Borrar" OnClick="BtnEliminar_Click" />
                     </td>
                 </tr>
             </table>
