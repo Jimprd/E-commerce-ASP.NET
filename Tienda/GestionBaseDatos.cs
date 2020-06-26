@@ -14,29 +14,50 @@ namespace Tienda
         private SqlDataAdapter adaptador; // Inicializa una nueva instancia de la clase SqlDataAdapter con una propiedad SelectCommand y un objeto SqlConnection.
         private DataSet contenido; // conjunto de datos, colección de datos habitualmente tabulada. Representa una caché de datos en memoria.
 
-
-        public bool CrearProducto(string nombre, string descripcion, decimal precio, int stock)
+        public bool CrearUsuario(string nombre, string apellido, string email, string contraseña)
         {
             bool ok = true;
 
+            try
+            {
+                string query = "INSERT INTO USUARIO VALUES ('" + nombre + "','" + apellido + "','" + email + "','" + contraseña + "')";
+                conexion.Open();
+                comando = new SqlCommand(query, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+
+                ok = false;
+            }
+
+            return ok;
+        }
+
+
+
+
+
+        public bool CrearProducto(string nombre, string descripcion, string precio, string stock)
+        {
+            bool ok = true;
             /*Procedimiento Almacenado
             * InsertarProducto
             * @Nombre = 'Perro4', @Descripcion = 'Es marron', @Precio_Venta = 300.05, @Stock_Actual = 5
             */
             try
             {
+                string query = "INSERT INTO PRODUCTO VALUES ('" + nombre + "','" + descripcion + "'," + precio + "," + stock + ")";
                 conexion.Open();
-                comando.CommandText = "INSERT INTO PRODUCTO VALUES ('" + nombre + "','" + descripcion + "'," + precio + "," + stock + ")";
-                comando.Connection = conexion;
+                comando = new SqlCommand(query, conexion);
                 comando.ExecuteNonQuery();
-
                 conexion.Close();
             }
             catch
             {
                 ok = false;
             }
-
             return ok;
         }
 
@@ -44,26 +65,23 @@ namespace Tienda
         {
             string query = "Select * From Producto Where Id_Producto = " + id;
             conexion.Open();
-            comando.CommandText = query;
-            comando.Connection = conexion;
+            comando = new SqlCommand(query, conexion);
             adaptador = new SqlDataAdapter(comando);
             DataTable tabla = new DataTable();
             adaptador.Fill(tabla);
             conexion.Close();
             adaptador.Dispose(); // limpia el adaptador
-
             return tabla;
         }
 
-        public bool ActualizarProducto(string id, string nombre, string descripcion, decimal precio, int stock)
+        public bool ActualizarProducto(string id, string nombre, string descripcion, string precio, string stock)
         {
             bool ok = true;
-
             try
             {
-                conexion.Open();    // UPDATE PRODUCTO SET Nombre ='   pato'       , Descripcion = 'es naranja',Precio_Venta = 500,Stock_Actual= 7 WHERE Id_Producto =17
-                comando.CommandText = "UPDATE PRODUCTO SET Nombre ='" + nombre + "', Descripcion = '" + descripcion + "', Precio_Venta = " + precio + ", Stock_Actual= " + stock + " WHERE Id_Producto =" + id;
-                comando.Connection = conexion;
+                string query = "UPDATE PRODUCTO SET Nombre ='" + nombre + "', Descripcion = '" + descripcion + "', Precio_Venta = " + precio + ", Stock_Actual= " + stock + " WHERE Id_Producto =" + id;
+                conexion.Open();
+                comando = new SqlCommand(query, conexion);
                 comando.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -71,10 +89,38 @@ namespace Tienda
             {
                 ok = false;
             }
-
             return ok;
         }
 
+        public bool EliminarProducto(string id)
+        {
+            bool ok = true;
+            try
+            {
+                string query = "DELETE FROM PRODUCTO WHERE Id_Producto =" + id;
+                conexion.Open();
+                comando = new SqlCommand(query, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch
+            {
+                ok = false;
+            }
+            return ok;
+        }
 
+        public DataSet ObtenerMarcas()
+        {
+            string query = "SELECT * FROM MARCA";
+            conexion.Open();
+            comando = new SqlCommand(query, conexion);
+            adaptador = new SqlDataAdapter(comando);
+            contenido = new DataSet();
+            adaptador.Fill(contenido);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            return contenido;
+        }
     }
 }

@@ -13,8 +13,6 @@
 
         <h1>Aca iría la barra de Navegacion</h1>
         <hr />
-        <div><h2>Este seria el home</h2></div>
-        <hr />
         <div>
           <h3>Registrate</h3>
             <table>
@@ -53,9 +51,11 @@
             </table>
         </div>
         <hr />
+        <div><h2>Este seria el home</h2></div>
         <div>
             <asp:Image runat="server" Width="500px" ImageUrl="~/Images/model-train-1146828.jpg"></asp:Image>
         </div>
+        <hr />
     </form>
 </body>
 </html>

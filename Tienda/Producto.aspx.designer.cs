@@ -60,42 +60,6 @@ namespace Tienda
         protected global::System.Web.UI.WebControls.TextBox TBStock;
 
         /// <summary>
-        /// Control TBPeso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBPeso;
-
-        /// <summary>
-        /// Control TBAncho.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBAncho;
-
-        /// <summary>
-        /// Control TBAlto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBAlto;
-
-        /// <summary>
-        /// Control TBLargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBLargo;
-
-        /// <summary>
         /// Control DDLMarcas.
         /// </summary>
         /// <remarks>
@@ -141,13 +105,13 @@ namespace Tienda
         protected global::System.Web.UI.WebControls.Button BtnEliminar;
 
         /// <summary>
-        /// Control IdMensaje.
+        /// Control LblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label IdMensaje;
+        protected global::System.Web.UI.WebControls.Label LblMensaje;
 
         /// <summary>
         /// Control GridView1.

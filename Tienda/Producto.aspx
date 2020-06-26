@@ -36,7 +36,7 @@
                         <asp:TextBox ID="TBStock" runat="server"></asp:TextBox>
                     </td>
                 </tr>
-                <tr> 
+<%--                <tr> 
                     <td>Peso</td>
                     <td>
                         <asp:TextBox ID="TBPeso" runat="server"></asp:TextBox>
@@ -59,7 +59,7 @@
                     <td>
                         <asp:TextBox ID="TBLargo" runat="server"></asp:TextBox>
                     </td>
-                </tr>
+                </tr>--%>
                 <tr> 
                     <td>Marca</td>
                     <td>
@@ -85,7 +85,7 @@
             </table>
         </div>
         <div>
-            <asp:Label ID="IdMensaje" runat="server" Text=""></asp:Label>
+            <asp:Label ID="LblMensaje" runat="server"></asp:Label>
         </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
             <Columns>
