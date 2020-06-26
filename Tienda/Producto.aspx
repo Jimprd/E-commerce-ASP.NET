@@ -10,13 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
             <h2>Alta De Producto</h2>
             <table>
-                <tr> <!-- Fila -->
-                    <td> <!-- Columna -->
-                        Nombre           
-                    </td>
+  <!-- Fila --><tr> 
+    <!-- Columna --><td>Nombre</td>
                     <td>
                         <asp:TextBox ID="TBNombre" runat="server"></asp:TextBox>
                     </td>
@@ -66,8 +63,7 @@
                 <tr> 
                     <td>Marca</td>
                     <td>
-                        <asp:DropDownList ID="DDLMarcas" runat="server">
-                        </asp:DropDownList>
+                        <asp:DropDownList ID="DDLMarcas" runat="server"></asp:DropDownList>
                     </td>
                 </tr>
                 <tr> 
@@ -88,7 +84,6 @@
                 </tr>
             </table>
         </div>
-
         <div>
             <asp:Label ID="IdMensaje" runat="server" Text=""></asp:Label>
         </div>
