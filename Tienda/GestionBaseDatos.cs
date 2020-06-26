@@ -17,7 +17,6 @@ namespace Tienda
         public bool CrearUsuario(string nombre, string apellido, string email, string contraseña)
         {
             bool ok = true;
-
             try
             {
                 string query = "INSERT INTO USUARIO VALUES ('" + nombre + "','" + apellido + "','" + email + "','" + contraseña + "')";
@@ -31,13 +30,8 @@ namespace Tienda
 
                 ok = false;
             }
-
             return ok;
         }
-
-
-
-
 
         public bool CrearProducto(string nombre, string descripcion, string precio, string stock)
         {
