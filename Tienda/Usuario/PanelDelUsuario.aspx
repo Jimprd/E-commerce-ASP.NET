@@ -12,7 +12,7 @@
         <h1>Panel Del Usuario</h1>
         <div>
           <h2>Completa Tus Datos (Usuario)</h2>
-            <table>
+            <table style="width: 100%;">
                 <tr> 
                     <td>Nombre</td>
                     <td>
@@ -52,15 +52,36 @@
                 <tr> 
                     <td></td>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Crear Cuenta" OnClick="BtnAgregar_Click" CssClass="btn-danger" />
+                        <asp:Button ID="Button1" runat="server" Text="asd"/>
 
-                        <asp:Button ID="Button4" runat="server" Text="Actualizar" />
+                        <asp:Button ID="Btn_GuardarCambios" runat="server" Text="Guardar Cambios" />
 
-                        <asp:Button ID="Button5" runat="server" Text="Borrar" />
+                        <asp:Button ID="BtnEliminarCuenta" runat="server" Text="Darse De Baja" />
                     </td>
                 </tr>
             </table>
         </div>
+<div>
+<h2>Domicilio</h2>
+<table style="width: 100%;">
+<tr> 
+<td>Calle</td>
+<td>&nbsp;</td>
+<td>Número</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</div>
     </form>
 </body>
 </html>
