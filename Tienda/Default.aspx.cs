@@ -26,15 +26,15 @@ namespace Tienda
 
         public void CrearCuenta()
         {
-            GestionBaseDatos datos = new GestionBaseDatos();
+            GBDatos datos = new GBDatos();
             bool ok = datos.CrearUsuario(this.TBNombreUsuario.Text.Trim(), this.TBApellido.Text.Trim(), this.TBEmail.Text.Trim(), this.TBContraseña.Text.Trim());
             if (ok)
             {
-
+              
             }
             else
             {
-
+                
             }
         }
     }
