@@ -14,6 +14,7 @@ namespace Tienda
         private SqlDataAdapter adaptador; // Inicializa una nueva instancia de la clase SqlDataAdapter con una propiedad SelectCommand y un objeto SqlConnection.
         private DataSet contenido; // conjunto de datos, colección de datos habitualmente tabulada. Representa una caché de datos en memoria.
         private DataTable tabla;
+        private int nombreArchivo;
 
         #region Encapsulado
         public SqlConnection Conexion { get => conexion; set => conexion = value; }
@@ -21,11 +22,11 @@ namespace Tienda
         public SqlDataAdapter Adaptador { get => adaptador; set => adaptador = value; }
         public DataSet Contenido { get => contenido; set => contenido = value; }
         public DataTable Tabla { get => tabla; set => tabla = value; }
+        public int NombreArchivo { get => nombreArchivo; set => nombreArchivo = value; }
         #endregion
         #endregion
 
         #region CONSTRUCTORES
-
         #endregion
 
         #region CRUD USUARIO ADMIN
@@ -95,7 +96,7 @@ namespace Tienda
             Comando = new SqlCommand("spUsuarioActualizar", Conexion)
             {
                 CommandType = CommandType.StoredProcedure
-            }; 
+            };
 
             // Declarar Parametros del comando y asignar valor
             Comando.Parameters.Add("@Id_Usuario", SqlDbType.Int).Value = id;
@@ -141,12 +142,26 @@ namespace Tienda
         public bool CrearProducto(string nombre, string descripcion, string precio, string stock, string marca, string categoria)
         {
             bool ok = true;
-            string query = "INSERT INTO PRODUCTO (Nombre, Descripcion, Precio_Venta, Stock_Actual, Id_Marca, Id_Categoria) VALUES ('" + nombre + "','" + descripcion + "'," + precio + "," + stock + "," + marca + "," + categoria + ")";
-            Comando = new SqlCommand(query, Conexion);
+
+            Comando = new SqlCommand("spProductoCrear", Conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            Comando.Parameters.AddWithValue("@Nombre", nombre);
+            Comando.Parameters.AddWithValue("@Descripcion", descripcion);
+            Comando.Parameters.AddWithValue("@Precio_Venta", precio);
+            Comando.Parameters.AddWithValue("@Stock_Actual", stock);
+            Comando.Parameters.AddWithValue("@Id_Marca", marca);
+            Comando.Parameters.AddWithValue("@Id_Categoria", categoria);
+            Comando.Parameters.Add("@Id_Producto", SqlDbType.Int);
+            Comando.Parameters["@Id_Producto"].Direction = ParameterDirection.Output;
+
             try
             {
                 Conexion.Open();
                 Comando.ExecuteNonQuery();
+                NombreArchivo = Convert.ToInt32(Comando.Parameters["@Id_Producto"].Value);
             }
             catch
             {
@@ -166,11 +181,36 @@ namespace Tienda
             return Tabla;
         }
 
+        // EN DESUSO por ahora....
+        public DataTable MostrarProducto(int Id_Producto)
+        {
+            string query = "SELECT PRODUCTO.Id_Producto, Nombre, Descripcion, Precio_Venta, Stock_Actual, PRODUCTO_IMAGEN.NombreRuta1 " +
+                            "FROM PRODUCTO JOIN PRODUCTO_IMAGEN " +
+                            "ON PRODUCTO.Id_Producto_Imagen = PRODUCTO_IMAGEN.Id_Producto_Imagen " +
+                            "WHERE PRODUCTO.Id_Producto = " + Id_Producto;
+
+            Tabla = GenerarDataTable(query);
+            return Tabla;
+        }
+
+        public DataTable ProductosGaleria()
+        {
+            Comando = new SqlCommand("spProductos_Galeria", Conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            Tabla = GenerarDataTable(Comando);
+            return Tabla;
+        }
+
         public bool ActualizarProducto(string id, string nombre, string descripcion, string precio, string stock, string marca, string categoria)
         {
             bool ok = true;
             string query = "UPDATE PRODUCTO SET Nombre ='" + nombre + "', Descripcion = '" + descripcion + "', Precio_Venta = " + precio + ", Stock_Actual= " + stock + ", Id_Marca = " + marca + ", Id_Categoria = " + categoria + " WHERE Id_Producto =" + id;
             Comando = new SqlCommand(query, Conexion);
+
+
             try
             {
                 Conexion.Open();
@@ -191,7 +231,9 @@ namespace Tienda
         {
             bool ok = true;
             string query = "DELETE FROM PRODUCTO WHERE Id_Producto =" + id;
+
             Comando = new SqlCommand(query, Conexion);
+
             try
             {
                 Conexion.Open();
@@ -207,9 +249,47 @@ namespace Tienda
             }
             return ok;
         }
+
         #endregion
 
-#region CRUD MARCA
+        #region 
+        public void CrearFoto(string id, string ruta, string img1, string img2, string img3, string img4)
+        {
+            Comando = new SqlCommand("spProductoImagenCrear", Conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            Comando.Parameters.Add("@Id_Producto_Imagen", SqlDbType.Int);
+            Comando.Parameters["@Id_Producto_Imagen"].Direction = ParameterDirection.Output;
+            Comando.Parameters.AddWithValue("@Id_Producto", id);
+            Comando.Parameters.AddWithValue("@Ruta", ruta);
+            Comando.Parameters.AddWithValue("@Foto1", img1);
+            Comando.Parameters.AddWithValue("@Foto2", img2);
+            Comando.Parameters.AddWithValue("@Foto3", img3);
+            Comando.Parameters.AddWithValue("@Foto4", img4);
+
+            try
+            {
+                // La instrucción using emplea el Objeto e inmediatamente después lo desecha o limpia de la memoria
+                // no hay un finally { } ya que la conexión se cerrará dentro del try, y recién despues pasaría al bloque catch
+                using (Conexion)
+                {
+                    Conexion.Open();
+                    Comando.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        #endregion
+
+        #region CRUD MARCA
         public bool CrearMarca(string marca)
         {
             bool ok = true;
@@ -217,6 +297,7 @@ namespace Tienda
             {
                 CommandType = CommandType.StoredProcedure
             };
+
             Comando.Parameters.AddWithValue("@Marca", marca);
 
             try

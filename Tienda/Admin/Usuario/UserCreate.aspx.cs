@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Tienda.Admin
 {
@@ -17,15 +12,17 @@ namespace Tienda.Admin
             }
         }
 
-        private void VerificarSesion()
-        {
-            if (Session["LoginOk"] == null)
-            {
-                Response.Redirect("~/Admin/Login.aspx");
-            }
-        }
 
+        #region HANDLERS
         protected void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            CrearUsuario();
+        }
+        #endregion
+
+
+        #region METODOS PRIVADOS
+        private void CrearUsuario()
         {
             GBDatos datos = new GBDatos();
             bool ok = datos.CrearUsuario(this.TBNombre.Text.Trim(), this.TBApellido.Text.Trim(), this.TBEmail.Text.Trim(), this.TBContraseña.Text.Trim());
@@ -39,9 +36,18 @@ namespace Tienda.Admin
             }
         }
 
-        public void CrearAlertJS(string mensaje)
+        private void VerificarSesion()
+        {
+            if (Session["LoginOk"] == null)
+            {
+                Response.Redirect("~/Admin/Login.aspx");
+            }
+        }
+
+        private void CrearAlertJS(string mensaje)
         {
             Response.Write("<script>alert('" + mensaje + "')</script>");
         }
+        #endregion
     }
 }

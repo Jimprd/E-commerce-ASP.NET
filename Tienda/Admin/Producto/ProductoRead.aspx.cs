@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Tienda.Admin
@@ -50,7 +46,6 @@ namespace Tienda.Admin
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
             ActualizarProducto();
-
         }
         #endregion
 
@@ -135,7 +130,6 @@ namespace Tienda.Admin
             this.TBDescripcion.MaxLength = 1000;
 
             this.TBStock.TextMode = TextBoxMode.Number;
-
         }
 
         public void CargarAtributosHTML()
@@ -163,6 +157,11 @@ namespace Tienda.Admin
             this.BtnGuardar.Visible = valor;
             this.BtnCancelar.Visible = valor;
             this.BtnEditar.Visible = !valor;
+
+            this.FUfoto.Visible = valor; // Estos no se están ocultando, probar ocultar el div a ver que pasa 
+            this.FUfoto2.Visible = valor;
+            this.FUfoto3.Visible = valor;
+            this.FUfoto4.Visible = valor;
         }
 
         private void VerificarSesion()

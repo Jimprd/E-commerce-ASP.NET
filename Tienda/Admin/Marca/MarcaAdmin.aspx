@@ -14,14 +14,15 @@
 
   <!-- Custom fonts for this template-->
   <script src="https://kit.fontawesome.com/cf74c2230c.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet" />
 
   <!-- Custom styles for this template-->
   <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this page -->
-  <link href="../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+  <link href="../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 </head>
 
@@ -37,52 +38,56 @@
 
         <div class="card-body">
 
-            <div class="btn-group btn-block mb-5" role="group">
-              <asp:Button ID="BtnVolver" runat="server" Text="Volver" CssClass="btn btn-dark btn-user"
-                OnClick="BtnVolver_Click" />
+          <div class="btn-group btn-block mb-5" role="group">
+            <asp:Button ID="BtnVolver" runat="server" Text="Volver" CssClass="btn btn-dark btn-user"
+              OnClick="BtnVolver_Click" />
 
-              <asp:Button ID="BtnCrearMarca" runat="server" Text="Ingresar Una Nueva Marca"
-                CssClass="btn btn-block btn-success" OnClick="BtnCrearMarca_Click" />
+            <asp:Button ID="BtnCrearMarca" runat="server" Text="Ingresar Una Nueva Marca"
+              CssClass="btn btn-block btn-success" OnClick="BtnCrearMarca_Click" />
 
-              <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" CssClass="btn btn-block btn-user btn-success "
-                OnClick="BtnGuardar_Click" />
+            <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" CssClass="btn btn-block btn-user btn-success "
+              OnClick="BtnGuardar_Click" />
 
-              <asp:TextBox ID="TBMarca" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TBMarca" runat="server" CssClass="form-control"></asp:TextBox>
 
-              <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger btn-user"
-                OnClick="BtnCancelar_Click" />
+            <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger btn-user"
+              OnClick="BtnCancelar_Click" />
 
-            </div>
+          </div>
 
 
           <div class="table-responsive">
 
-<asp:GridView ID="GVTabla" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Marca" DataSourceID="TiendaMarcas" CssClass="table table-bordered table-hover" Width="100%" OnRowDataBound="GVTabla_RowDataBound">
-    <Columns>
-        <asp:CommandField ShowDeleteButton="True" />
-        <asp:BoundField DataField="Marca" HeaderText="Marca" SortExpression="Marca" />
-        <asp:CommandField ShowEditButton="True" />
-    </Columns>
-              </asp:GridView>
+            <asp:GridView ID="GVTabla" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Marca"
+              DataSourceID="TiendaMarcas" CssClass="table table-bordered table-hover" Width="100%"
+              OnRowDataBound="GVTabla_RowDataBound">
+              <Columns>
+                <asp:CommandField ShowDeleteButton="True" />
+                <asp:BoundField DataField="Marca" HeaderText="Marca" SortExpression="Marca" />
+                <asp:CommandField ShowEditButton="True" />
+              </Columns>
+            </asp:GridView>
 
           </div>
         </div>
       </div>
     </div>
-            <asp:SqlDataSource ID="TiendaMarcas" runat="server"
-              ConnectionString="<%$ ConnectionStrings:TiendaOnlineConnectionString %>" DeleteCommand="spMarcaEliminar" InsertCommand="spMarcaCrear"
-              SelectCommand="spMarcaObtener_Todo" UpdateCommand="spMarcaActualizar" DeleteCommandType="StoredProcedure" InsertCommandType="StoredProcedure" SelectCommandType="StoredProcedure" UpdateCommandType="StoredProcedure">
-              <DeleteParameters>
-                <asp:Parameter Name="Id_Marca" Type="Int32" />
-              </DeleteParameters>
-              <InsertParameters>
-                <asp:Parameter Name="Marca" Type="String" />
-              </InsertParameters>
-              <UpdateParameters>
-                <asp:Parameter Name="Id_Marca" Type="Int32" />
-                <asp:Parameter Name="Marca" Type="String" />
-              </UpdateParameters>
-            </asp:SqlDataSource>
+    <asp:SqlDataSource ID="TiendaMarcas" runat="server"
+      ConnectionString="<%$ ConnectionStrings:TiendaOnlineConnectionString %>" DeleteCommand="spMarcaEliminar"
+      InsertCommand="spMarcaCrear" SelectCommand="spMarcaObtener_Todo" UpdateCommand="spMarcaActualizar"
+      DeleteCommandType="StoredProcedure" InsertCommandType="StoredProcedure" SelectCommandType="StoredProcedure"
+      UpdateCommandType="StoredProcedure">
+      <DeleteParameters>
+        <asp:Parameter Name="Id_Marca" Type="Int32" />
+      </DeleteParameters>
+      <InsertParameters>
+        <asp:Parameter Name="Marca" Type="String" />
+      </InsertParameters>
+      <UpdateParameters>
+        <asp:Parameter Name="Id_Marca" Type="Int32" />
+        <asp:Parameter Name="Marca" Type="String" />
+      </UpdateParameters>
+    </asp:SqlDataSource>
   </form>
 
   <!-- Bootstrap core JavaScript-->

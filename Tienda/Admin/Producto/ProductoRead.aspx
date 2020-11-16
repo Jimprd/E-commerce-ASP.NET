@@ -43,7 +43,7 @@
                     <div class="col-sm-6">
                       <div class="form-group row">
                         <div class="col mb-3 mb-sm-0">
-                            Producto
+                          Producto
                           <asp:TextBox ID="TBNombre" runat="server" Placeholder="Nombre"
                             CssClass="form-control form-control-user"></asp:TextBox>
                         </div>
@@ -51,17 +51,22 @@
 
                       <div class="form-group row">
                         <div class="col mb-3 mb-sm-0">
-                            Precio De Venta
-                          <asp:TextBox ID="TBPrecio" runat="server" Placeholder="1500.00"
-                            CssClass="form-control form-control-user"
-                            ToolTip='Precio. Usar el punto (.) como separador decimal en lugar de la coma (,)'>
-                          </asp:TextBox>
+                          Precio De Venta
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                            <asp:TextBox ID="TBPrecio" runat="server" Placeholder="1500.00"
+                              CssClass="form-control form-control-user"
+                              ToolTip='Precio. Usar el punto (.) como separador decimal en lugar de la coma (,)'>
+                            </asp:TextBox>
+                          </div>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <div class="col mb-3 mb-sm-0">
-                           Stock Actual
+                          Stock Actual
                           <asp:TextBox ID="TBStock" runat="server" Placeholder="0"
                             CssClass="form-control form-control-user" ToolTip="Stock Actual"></asp:TextBox>
                         </div>
@@ -75,7 +80,7 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
-                        Descripción
+                      Descripción
                       <asp:TextBox ID="TBDescripcion" runat="server" TextMode="MultiLine" MaxLength="1000"
                         ToolTip="Describi el producto" Placeholder="Descripcion del producto"
                         CssClass="form-control rounded" Rows="10" Columns="30" aria-label="With textarea"></asp:TextBox>
@@ -85,11 +90,13 @@
                   <div class="text-center row">
                     <div class="col-6">
                       Marca
-                      <asp:DropDownList ID="DDLMarcas" runat="server" CssClass="custom-select custom-select-sm form-control form-control-sm"></asp:DropDownList>
+                      <asp:DropDownList ID="DDLMarcas" runat="server"
+                        CssClass="custom-select custom-select-sm form-control form-control-sm"></asp:DropDownList>
                     </div>
                     <div class="col-6">
                       Categoria
-                      <asp:DropDownList ID="DDLCategoria" runat="server" CssClass="custom-select custom-select-sm form-control form-control-sm"></asp:DropDownList>
+                      <asp:DropDownList ID="DDLCategoria" runat="server"
+                        CssClass="custom-select custom-select-sm form-control form-control-sm"></asp:DropDownList>
                     </div>
                   </div>
                   <hr />
@@ -109,7 +116,50 @@
               </div>
             </div>
 
-            <div class="col-lg-5 bg-primary"> Panel para cargar fotos</div>
+            <div class="col-lg-5 bg-primary">
+              <div class="mt-2 mr-2">
+
+                <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded mw-100 w-100" />
+
+                <div class="input-group">
+                  <div class="custom-file">
+                    <asp:FileUpload ID="FUfoto" runat="server" CssClass="custom-file-input" onchange="readURL(this)" />
+                    <label class="custom-file-label" for="FUfoto">Seleccionar la imagen principal</label>
+                  </div>
+                </div>
+
+                <asp:Image ID="Image2" runat="server" CssClass="img-fluid rounded mw-100 w-100" />
+
+                <div class="input-group">
+                  <div class="custom-file">
+                    <asp:FileUpload ID="FUfoto2" runat="server" CssClass="custom-file-input"
+                      onchange="readURL2(this)" />
+                    <label class="custom-file-label" for="FUfoto2">Seleccionar imagen 2</label>
+                  </div>
+                </div>
+
+                <asp:Image ID="Image3" runat="server" CssClass="img-fluid rounded mw-100 w-100" />
+
+                <div class="input-group">
+                  <div class="custom-file">
+                    <asp:FileUpload ID="FUfoto3" runat="server" CssClass="custom-file-input"
+                      onchange="readURL3(this)" />
+                    <label class="custom-file-label" for="FUfoto3">Seleccionar imagen 3</label>
+                  </div>
+                </div>
+
+                <asp:Image ID="Image4" runat="server" CssClass="img-fluid rounded mw-100 w-100" />
+
+                <div class="input-group">
+                  <div class="custom-file">
+                    <asp:FileUpload ID="FUfoto4" runat="server" CssClass="custom-file-input"
+                      onchange="readURL4(this)" />
+                    <label class="custom-file-label" for="FUfoto4">Seleccionar imagen 4</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
 
           </div> <!-- row -->
         </div> <!-- card-body -->

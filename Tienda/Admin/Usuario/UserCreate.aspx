@@ -52,27 +52,28 @@
                     </div>
                   </div>
                   <div class="form-group">
-                        <asp:TextBox ID="TBEmail" placeholder="email@email.com" ToolTip="Ingresa tu nombre de usuario o e-mail"
-                          runat="server" CssClass="form-control form-control-user"  TextMode="Email"></asp:TextBox>
+                    <asp:TextBox ID="TBEmail" placeholder="email@email.com"
+                      ToolTip="Ingresa tu nombre de usuario o e-mail" runat="server"
+                      CssClass="form-control form-control-user" TextMode="Email"></asp:TextBox>
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <asp:TextBox ID="TBContraseña" placeholder="Contraseña" ToolTip="Ingresa tu contraseña"
-                          runat="server" CssClass="form-control form-control-user" TextMode="Password">
-                        </asp:TextBox>
+                      <asp:TextBox ID="TBContraseña" placeholder="Contraseña" ToolTip="Ingresa tu contraseña"
+                        runat="server" CssClass="form-control form-control-user" TextMode="Password">
+                      </asp:TextBox>
 
                     </div>
                     <div class="col-sm-6">
-                        <asp:TextBox ID="TBRContraseña" placeholder="Repetir Contraseña" ToolTip="Repetir contraseña"
-                          runat="server" CssClass="form-control form-control-user" TextMode="Password">
-                        </asp:TextBox>
+                      <asp:TextBox ID="TBRContraseña" placeholder="Repetir Contraseña" ToolTip="Repetir contraseña"
+                        runat="server" CssClass="form-control form-control-user" TextMode="Password">
+                      </asp:TextBox>
 
                     </div>
                   </div>
 
                   <asp:Button ID="BtnRegistrar" runat="server" Text="Registrar Cuenta"
                     CssClass="btn btn-primary btn-user btn-block" OnClick="BtnRegistrar_Click" />
-                  <hr/>
+                  <hr />
                   <%--                <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
                 </a>
@@ -80,7 +81,7 @@
                   <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                 </a> --%>
                 </div>
-                <hr/>
+                <hr />
                 <div class="text-center">
                   <a class="small" href="#">Forgot Password?</a>
                 </div>
@@ -104,6 +105,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
+
+    <script src="../assets/js/demo/validacion.js"></script>
 
   </form>
 </body>

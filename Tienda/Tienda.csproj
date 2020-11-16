@@ -77,6 +77,8 @@
     <Content Include="Admin\assets\css\sb-admin-2.min.css" />
     <Content Include="Admin\assets\forgot-password.html" />
     <Content Include="Admin\assets\gulpfile.js" />
+    <Content Include="Admin\assets\img\institucional.png" />
+    <Content Include="Admin\assets\img\registro.jpg" />
     <Content Include="Admin\assets\img\undraw_posting_photo.svg" />
     <Content Include="Admin\assets\index.html" />
     <Content Include="Admin\assets\js\demo\chart-area-demo.js" />
@@ -85,6 +87,7 @@
     <Content Include="Admin\assets\js\demo\datatables-demo.js" />
     <Content Include="Admin\assets\js\sb-admin-2.js" />
     <Content Include="Admin\assets\js\sb-admin-2.min.js" />
+    <Content Include="Admin\assets\js\demo\validacion.js" />
     <Content Include="Admin\assets\login.html" />
     <Content Include="Admin\assets\register.html" />
     <Content Include="Admin\assets\tables.html" />
@@ -1761,6 +1764,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Admin\PanelAdmin.aspx" />
     <Content Include="Admin\Producto\ProductoCreate.aspx" />
+    <Content Include="Usuario\Login.aspx" />
     <Content Include="Usuario\PanelDelUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1851,6 +1855,13 @@
       <DependentUpon>ProductoCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\PanelDelUsuario.aspx.cs">
       <DependentUpon>PanelDelUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

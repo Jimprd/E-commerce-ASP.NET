@@ -70,7 +70,7 @@ namespace Tienda.Admin
             string valorId = Request.QueryString["Id_Producto"];
             if (!string.IsNullOrEmpty(valorId))
             {
-
+            
             }
             else
             {

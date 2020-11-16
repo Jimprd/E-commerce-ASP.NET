@@ -3,6 +3,9 @@
 //  $('#dataTable').DataTable();
 //});
 
+// jQuery utiliza el simbolo $ para referirse a los selectores, como los que usamos en css: p, h1, h2, #id, .class
+// 
+
 $(function () {
     $("#GVTabla").prepend($("<thead></thead>").append($(this).find("tr:first")))
         .dataTable({
@@ -14,7 +17,7 @@ $(function () {
                 "search": "Buscar:",
                 "paginate": {
                     "first": "Primero",
-                    "last": "Último",
+                    "last": "ï¿½ltimo",
                     "next": "Siguiente",
                     "previous": "Anterior"
                 }
